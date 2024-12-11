@@ -17,7 +17,6 @@ def main():
     parser = argparse.ArgumentParser(
         prog='Bert Classifier',
         description='This program takes CSV files of the format [Text, Category]',
-        epilog='For more information on how to run this program, refer to the README file.'
     )
 
 
