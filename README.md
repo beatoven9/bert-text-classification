@@ -1,7 +1,7 @@
 # Bert Text Classification
 
 ## Description
-This is a Binary Classification model trained using the dataset from a kaggle [dataset](https://www.kaggle.com/datasets/uciml/sms-spam-collection-dataset).
+This is a Binary Classification model trained using the dataset from a kaggle [dataset](https://www.kaggle.com/datasets/ashfakyeafi/spam-email-classification).
 
 The features of the text are extracted using bert-base-uncased from the [transformers](https://pytorch.org/hub/huggingface_pytorch-transformers/) module provided by pytorch.
 
