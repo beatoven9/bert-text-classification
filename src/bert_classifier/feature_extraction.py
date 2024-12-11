@@ -74,7 +74,7 @@ def extract_features(tokenized_inputs, device, batch_size=8):
 
 def get_misclassified_examples(data_df, y_val, y_pred):
     val_data = pd.DataFrame({
-        'text': data_df.iloc[y_val.index]['Text'],
+        'text': data_df.iloc[y_val.index]['Message'],
         'true_label': y_val,
         'predicted_label': y_pred
     })
@@ -94,7 +94,7 @@ def get_embeddings(data_df, device, feature_embeddings_path=None):
             sys.exit(f"Exception encountered while loading pickle object: {feature_embeddings_path}.\n{e}")
     else:
         tokenized_inputs = tokenize_messages(
-            data_df['Text'].tolist(),
+            data_df['Message'].tolist(),
         )
         cls_embeddings = extract_features(tokenized_inputs, device)
 
@@ -104,11 +104,11 @@ def get_embeddings(data_df, device, feature_embeddings_path=None):
             output_dir = pathlib.Path(OUTPUT_DIR, "features")
             random_uuid = uuid.uuid4()
             print("---" * 30)
+            output_pickle_filename = str(random_uuid) + ".pkl"
+            output_path = pathlib.Path(output_dir, output_pickle_filename)
             try:
-                os.makedirs(output_dir)
-
-                output_pickle_filename = str(random_uuid) + ".pkl"
-                output_path = pathlib.Path(output_dir, output_pickle_filename)
+                if not output_dir.is_dir():
+                    os.makedirs(output_dir)
                 with open(output_path, "wb") as pickle_file:
                     pickle.dump(cls_embeddings, pickle_file)
                     print(f"Saved featureset to file named '{output_path}'")
