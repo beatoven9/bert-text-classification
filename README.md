@@ -1,6 +1,8 @@
 # Bert Text Classification
 
 ## Description
+The main purpose of this was to build an outline for a project that I'm doing on a secure system with restricted access to the internet. As such, development on the system is much more tedious since vanilla vim/emacs (no plugin installations) are the only text editors available on the system. So I built this so that I could move a starting point to the computer. The network in this example is extremely simple, but it will be expanded upon on the secure system.
+
 This is a Binary Classification model trained using the dataset from a kaggle [dataset](https://www.kaggle.com/datasets/ashfakyeafi/spam-email-classification).
 
 The features of the text are extracted using bert-base-uncased from the [transformers](https://pytorch.org/hub/huggingface_pytorch-transformers/) module provided by pytorch.
